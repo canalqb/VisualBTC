@@ -13,7 +13,7 @@
   --color-border-accent: #FF8000;
   --color-border-warning: #FF8000;
   --color-border-info: #000000;
-  
+
   /* Text Colors */
   --color-text-primary: #000000;
   --color-text-secondary: #666666;
@@ -22,7 +22,7 @@
   --color-text-info: #4682B4;
   --color-text-accent: #39A9E1;
   --color-text-success: #34bf6e;
-  
+
   /* Button Colors */
   --color-btn-bg: #FF8000;
   --color-btn-bg-hover: #FFA000;
@@ -30,10 +30,10 @@
   --color-btn-border-top-left: #FDBE33;
   --color-btn-border-bottom-right: #D77206;
   --color-btn-text: #FFFFFF;
-  
+
   /* Gradient/Switch Colors */
   --color-gradient-on: #39ca74;
-  
+
   /* QR/Other */
   --color-orange: #FF8C00;
   --color-warning-bg: #FFFACD;
@@ -51,7 +51,7 @@
     --color-border-accent: #FF8000;
     --color-border-warning: #FF8000;
     --color-border-info: #4682B4;
-    
+
     --color-text-primary: #E0E0E0;
     --color-text-secondary: #AAAAAA;
     --color-text-heading: #FFAA00;
@@ -59,16 +59,16 @@
     --color-text-info: #66B2FF;
     --color-text-accent: #66B2FF;
     --color-text-success: #44FF44;
-    
+
     --color-btn-bg: #FF8000;
     --color-btn-bg-hover: #FFA500;
     --color-btn-bg-active: #E09000;
     --color-btn-border-top-left: #FDBE33;
     --color-btn-border-bottom-right: #D77206;
     --color-btn-text: #FFFFFF;
-    
+
     --color-gradient-on: #4CAF50;
-    
+
     --color-orange: #FFB347;
     --color-warning-bg: #2A1A00;
     --color-print-ownership: #888888;
@@ -85,7 +85,7 @@ body.dark-mode {
   --color-border-accent: #FF8000;
   --color-border-warning: #FF8000;
   --color-border-info: #4682B4;
-  
+
   --color-text-primary: #E0E0E0;
   --color-text-secondary: #AAAAAA;
   --color-text-heading: #FFAA00;
@@ -93,16 +93,16 @@ body.dark-mode {
   --color-text-info: #66B2FF;
   --color-text-accent: #66B2FF;
   --color-text-success: #44FF44;
-  
+
   --color-btn-bg: #FF8000;
   --color-btn-bg-hover: #FFA500;
   --color-btn-bg-active: #E09000;
   --color-btn-border-top-left: #FDBE33;
   --color-btn-border-bottom-right: #D77206;
   --color-btn-text: #FFFFFF;
-  
+
   --color-gradient-on: #4CAF50;
-  
+
   --color-orange: #FFB347;
   --color-warning-bg: #2A1A00;
   --color-print-ownership: #888888;
@@ -179,6 +179,29 @@ a.btn:active {
   background: var(--color-btn-bg-active);
 }
 
+button.btn {
+  color: var(--color-btn-text);
+  text-decoration: none;
+  user-select: none;
+  background: var(--color-btn-bg);
+  padding: .33em 1.0em;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-btn-border-top-left) var(--color-border) var(--color-border) var(--color-btn-border-bottom-right);
+  border-radius: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background: var(--color-btn-bg-hover);
+}
+
+button.btn:active {
+  background: var(--color-btn-bg-active);
+}
+
 /* Checkbox toggle styles */
 .mrt {
   border-color: var(--color-border-accent);
@@ -211,7 +234,10 @@ a.AddrLink:active {
 }
 
 a.AddrLink:hover {
-  color: var(--color-orange);
+  font-size: 115%;
+  border: 2px solid orange;
+  border-radius: 11px;
+  padding: 6px;
 }
 
 /* Popup images */
@@ -225,7 +251,6 @@ a.AddrLink:hover {
   color: var(--color-orange);
 }
 
-/* YouTube links */
 .youtubeLink:hover {
   color: #E88303;
 }
@@ -251,12 +276,8 @@ a.AddrLink:hover {
 
 /* Print ownership text */
 p.printOwnership {
+  font-style: italic;
   color: var(--color-print-ownership);
-}
-
-/* Cautionary message */
-#Caution {
-  color: var(--color-text-warning);
 }
 
 /* Media queries for responsiveness */
@@ -265,13 +286,85 @@ p.printOwnership {
     width: 95%;
     margin-left: 0;
   }
-  
-  .textbox, .textfield, .textfieldPK, .VisWarn, .TextDescr {
+
+  .textbox, .textfield, .textfieldPK, .VisWarn, .TextDescr, .TextWarn {
     width: 95%;
   }
-  
+
   .Reslbl {
     margin-left: 5px;
     padding-left: 5px;
   }
+
+  .LabelExp {
+    padding-left: 5px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .noPrint { display: none; }
+  .printThis { display: block; width: 670px; margin: 0px auto; text-align: center; }
+  .printThis a.btn { visibility: hidden; }
+  #PrintBtn { visibility: hidden; }
+  p.printOwnership { display: block; visibility: visible; position: static !important; }
+}
+
+@media screen {
+  p.printOwnership { display: none; visibility: visible; }
+}
+
+/* Screen Reader Only - for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Additional utility classes for inline style replacements */
+
+/* Page break */
+.page-break {
+  page-break-before: always;
+}
+
+/* Caution message with color */
+.caution-message {
+  color: var(--color-text-warning);
+  margin: 5px;
+  display: none;
+}
+
+/* Video links margin */
+.video-links {
+  margin-block-start: 5px;
+  margin-block-end: 10px;
+}
+
+/* QR code container */
+.qr-code-container {
+  display: inline-block;
+  width: 238px;
+}
+
+/* Inline block for buttons */
+.inline-btn {
+  display: inline-block;
+}
+
+/* Footer links */
+.footer-links {
+  font-size: 1.0em;
+  color: var(--color-print-ownership);
+}
+
+/* Display none for hidden form elements */
+.display-none {
+  display: none;
 }

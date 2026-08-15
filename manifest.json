@@ -1,0 +1,54 @@
+{
+  "name": "Visual BTC Generator - Gerador Visual de Chave Bitcoin",
+  "short_name": "VisualBTC",
+  "description": "Gerador visual de chave privada Bitcoin. O quadrado 16x16 representa bits 0 ou 1 para geração de chaves. Gere suas próprias chaves usando desenhos ou modo moeda.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "96x96",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "128x128",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFAFA",
+  "theme_color": "#FF8000",
+  "orientation": "portrait",
+  "lang": "pt-BR",
+  "categories": [
+    "development",
+    "education",
+    "finance"
+  ],
+  "prefer_related_applications": false,
+  "serviceworker": {
+    "src": "/sw.js",
+    "scope": "/",
+    "update_via_cache": "auto"
+  }
+}

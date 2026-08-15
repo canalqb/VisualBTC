@@ -1,7 +1,25 @@
 User-agent: *
-Disallow: /css
-Disallow: /js
+Allow: /
+
+Disallow: /js/
+Disallow: /css/
 Disallow: /cgi-bin
 Disallow: /.git
-Host: https://btckeygen.com
-Sitemap: http://btckeygen.com/sitemap.xml
+Disallow: /archive
+
+Host: btckeygen.com
+Sitemap: https://btckeygen.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl-delay to avoid server overload
+Crawl-delay: 1
+
+# Specific rules for popular bots
+User-agent: AdsBot-Google
+Allow: /
+Crawl-delay: 2

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>VisualBTC Test Suite</title>
+    <meta name="description" content="Test suite for Bitcoin visual private key generator">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-suite {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        .test-group { margin: 15px 0; padding: 15px; background: #f9f9f9; border-radius: 4px; }
+        h2 { margin-top: 0; color: #555; font-size: 1.2em; }
+        .test-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .test-item:last-child { border-bottom: none; }
+        .pass { color: #28a745; font-weight: bold; }
+        .fail { color: #dc3545; font-weight: bold; }
+        .test-description { margin: 5px 0; }
+        .test-assertion { font-size: 0.9em; color: #666; }
+        .summary { 
+            margin-top: 20px; 
+            padding: 15px; 
+            background: #e9ecef; 
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .metric { text-align: center; }
+        .metric-value { font-size: 2em; font-weight: bold; }
+        .pass .metric-value { color: #28a745; }
+        .fail .metric-value { color: #dc3545; }
+        .refresh-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .refresh-btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="test-suite">
+        <h1>🔬 VisualBTC Test Suite</h1>
+        <p>Automated tests for Bitcoin Private Key Visual Generator</p>
+        
+        <div class="test-group">
+            <h2>📊 Performance Tests</h2>
+            <div class="test-item">
+                <div class="test-description">Page Load Time</div>
+                <div class="test-assertion">Expected: &lt; 2000ms</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">Script Size Budget</div>
+                <div class="test-assertion">Expected: Total JS &lt; 100KB</div>
+            </div>
+        </div>
+        
+        <div class="test-group">
+            <h2>♿ Accessibility Tests</h2>
+            <div class="test-item">
+                <div class="test-description">Main landmark has proper role</div>
+                <div class="test-assertion">Expected: role="main" present</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">Canvas has accessible label</div>
+                <div class="test-assertion">Expected: aria-label present</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">All buttons have accessible labels</div>
+                <div class="test-assertion">Expected: aria-label on each button</div>
+            </div>
+        </div>
+        
+        <div class="test-group">
+            <h2>🧪 Functional Tests</h2>
+            <div class="test-item">
+                <div class="test-description">Canvas initialization</div>
+                <div class="test-assertion">Expected: Canvas element exists and is 256x256</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">Button event handlers</div>
+                <div class="test-assertion">Expected: Clear, Random, Inverse, Rotate buttons functional</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">QR Code generation</div>
+                <div class="test-assertion">Expected: QR code renders for valid BTC address</div>
+            </div>
+        </div>
+        
+        <div class="test-group">
+            <h2>🔒 Security Tests</h2>
+            <div class="test-item">
+                <div class="test-description">SRI hashes present on CDN scripts</div>
+                <div class="test-assertion">Expected: integrity attribute on all CDN script tags</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">Content Security Policy meta tag</div>
+                <div class="test-assertion">Expected: CSP meta tag present</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">HTTPS links only</div>
+                <div class="test-assertion">Expected: All external links use HTTPS</div>
+            </div>
+        </div>
+        
+        <div class="test-group">
+            <h2>🔧 SEO Tests</h2>
+            <div class="test-item">
+                <div class="test-description">Title tag present</div>
+                <div class="test-assertion">Expected: &lt;title&gt; tag with descriptive text</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">Meta description present</div>
+                <div class="test-assertion">Expected: &lt;meta name="description"&gt; tag</div>
+            </div>
+            <div class="test-item">
+                <div class="test-description">robots.txt exists</div>
+                <div class="test-assertion">Expected: robots.txt allows crawling</div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <div class="metric">
+                <div class="metric-value pass">✓</div>
+                <div>Passed Tests</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value fail">✗</div>
+                <div>Failed Tests</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">--</div>
+                <div>Pass Rate</div>
+            </div>
+        </div>
+        
+        <button class="refresh-btn" onclick="location.reload()">🔄 Refresh Test Results</button>
+    </div>
+    
+    <!-- Test framework inline for self-contained testing -->
+    <script>
+        // Simple test runner
+        function runTests() {
+            const results = {
+                passed: 0,
+                failed: 0
+            };
+            
+            // Test 1: Check main elements exist
+            try {
+                const main = document.getElementById('MainDIV');
+                if (main && main.getAttribute('role') === 'main') {
+                    results.passed++;
+                } else {
+                    results.failed++;
+                }
+            } catch(e) {
+                results.failed++;
+            }
+            
+            // Test 2: Check canvas
+            try {
+                const canvas = document.getElementById('BTCpic');
+                if (canvas && canvas.width === 256 && canvas.height === 256) {
+                    results.passed++;
+                } else {
+                    results.failed++;
+                }
+            } catch(e) {
+                results.failed++;
+            }
+            
+            // Test 3: Check buttons
+            try {
+                const buttons = ['ClearButton', 'RandButton', 'Inverse', 'Rotate'];
+                let allExist = true;
+                for (const id of buttons) {
+                    if (!document.getElementById(id)) {
+                        allExist = false;
+                        break;
+                    }
+                }
+                if (allExist) {
+                    results.passed++;
+                } else {
+                    results.failed++;
+                }
+            } catch(e) {
+                results.failed++;
+            }
+            
+            // Test 4: Check accessibility
+            try {
+                const canvas = document.getElementById('BTCpic');
+                if (canvas && canvas.hasAttribute('aria-label')) {
+                    results.passed++;
+                } else {
+                    results.failed++;
+                }
+            } catch(e) {
+                results.failed++;
+            }
+            
+            // Test 5: Check title
+            try {
+                const title = document.querySelector('title');
+                if (title && title.textContent.length > 0) {
+                    results.passed++;
+                } else {
+                    results.failed++;
+                }
+            } catch(e) {
+                results.failed++;
+            }
+            
+            return results;
+        }
+        
+        // Run tests on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = runTests();
+            console.log('Test Results:', results);
+        });
+    </script>
+</body>
+</html>

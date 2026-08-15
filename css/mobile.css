@@ -1,0 +1,154 @@
+/* Mobile Responsive Styles for VisualBTC */
+@media (max-width: 768px) {
+    html, body {
+        font-size: 14px;
+        overflow-x: hidden;
+    }
+    
+    .mainDIVcss {
+        width: 100% !important;
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .mainDIVcss > div {
+        width: 100% !important;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.2em;
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    .TextDescr {
+        font-size: 12px;
+        padding: 8px;
+        margin: 10px 0;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    textarea {
+        font-size: 11px;
+        padding: 8px;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    .textbox {
+        width: 100% !important;
+        padding: 8px;
+        margin: 5px 0;
+        font-size: 13px;
+        box-sizing: border-box;
+    }
+    
+    .Reslbl {
+        font-size: 12px;
+        display: block;
+        margin: 5px 0;
+        word-break: break-word;
+    }
+    
+    .btn {
+        padding: 10px 15px;
+        font-size: 13px;
+        width: 100% !important;
+        margin: 5px 0;
+    }
+    
+    label {
+        font-size: 13px;
+        padding: 5px 0;
+    }
+    
+    #BTCpic {
+        max-width: 100% !important;
+        height: auto;
+        margin: 10px 0;
+    }
+    
+    .ExportDIVField {
+        padding: 10px;
+        width: 100% !important;
+    }
+    
+    p.printOwnership {
+        font-size: 10px;
+        text-align: center;
+        margin-top: 15px;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    html, body {
+        font-size: 12px;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+    
+    textarea, .textbox {
+        font-size: 10px;
+        padding: 6px;
+    }
+    
+    h2 {
+        font-size: 1em;
+        margin: 10px 0 5px 0;
+    }
+    
+    #BTCb, #BTCpub, #BTCpubC {
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+    }
+    
+    .TextWarn {
+        font-size: 11px;
+        padding: 6px;
+    }
+}
+
+/* Touch target improvements for mobile */
+input[type="checkbox"], .rtg {
+    min-height: 24px;
+    min-width: 24px;
+}
+
+/* PWA Install banner styles */
+#install-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FF8000;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FF8000;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e67300;
+}
