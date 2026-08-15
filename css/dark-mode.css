@@ -1,0 +1,277 @@
+/* ============================================================
+   Dark Mode CSS Variables & Media Queries for VisualBTC
+   ============================================================ */
+
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Light Theme Colors (Default) */
+  --color-bg-primary: #FFFAFA;
+  --color-bg-secondary: #FDF4E3;
+  --color-bg-tertiary: #EEE8AA;
+  --color-bg-card: #FFFFFF;
+  --color-border: #000000;
+  --color-border-accent: #FF8000;
+  --color-border-warning: #FF8000;
+  --color-border-info: #000000;
+  
+  /* Text Colors */
+  --color-text-primary: #000000;
+  --color-text-secondary: #666666;
+  --color-text-heading: #FF8000;
+  --color-text-warning: #FF0000;
+  --color-text-info: #4682B4;
+  --color-text-accent: #39A9E1;
+  --color-text-success: #34bf6e;
+  
+  /* Button Colors */
+  --color-btn-bg: #FF8000;
+  --color-btn-bg-hover: #FFA000;
+  --color-btn-bg-active: #DAA520;
+  --color-btn-border-top-left: #FDBE33;
+  --color-btn-border-bottom-right: #D77206;
+  --color-btn-text: #FFFFFF;
+  
+  /* Gradient/Switch Colors */
+  --color-gradient-on: #39ca74;
+  
+  /* QR/Other */
+  --color-orange: #FF8C00;
+  --color-warning-bg: #FFFACD;
+  --color-print-ownership: #808080;
+}
+
+/* Dark Theme Override */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #0A0A0A;
+    --color-bg-secondary: #1A1A1A;
+    --color-bg-tertiary: #2A2A2A;
+    --color-bg-card: #1E1E1E;
+    --color-border: #404040;
+    --color-border-accent: #FF8000;
+    --color-border-warning: #FF8000;
+    --color-border-info: #4682B4;
+    
+    --color-text-primary: #E0E0E0;
+    --color-text-secondary: #AAAAAA;
+    --color-text-heading: #FFAA00;
+    --color-text-warning: #FF4444;
+    --color-text-info: #66B2FF;
+    --color-text-accent: #66B2FF;
+    --color-text-success: #44FF44;
+    
+    --color-btn-bg: #FF8000;
+    --color-btn-bg-hover: #FFA500;
+    --color-btn-bg-active: #E09000;
+    --color-btn-border-top-left: #FDBE33;
+    --color-btn-border-bottom-right: #D77206;
+    --color-btn-text: #FFFFFF;
+    
+    --color-gradient-on: #4CAF50;
+    
+    --color-orange: #FFB347;
+    --color-warning-bg: #2A1A00;
+    --color-print-ownership: #888888;
+  }
+}
+
+/* Forced Dark Mode Class (can be toggled via JS) */
+body.dark-mode {
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1A1A1A;
+  --color-bg-tertiary: #2A2A2A;
+  --color-bg-card: #1E1E1E;
+  --color-border: #404040;
+  --color-border-accent: #FF8000;
+  --color-border-warning: #FF8000;
+  --color-border-info: #4682B4;
+  
+  --color-text-primary: #E0E0E0;
+  --color-text-secondary: #AAAAAA;
+  --color-text-heading: #FFAA00;
+  --color-text-warning: #FF4444;
+  --color-text-info: #66B2FF;
+  --color-text-accent: #66B2FF;
+  --color-text-success: #44FF44;
+  
+  --color-btn-bg: #FF8000;
+  --color-btn-bg-hover: #FFA500;
+  --color-btn-bg-active: #E09000;
+  --color-btn-border-top-left: #FDBE33;
+  --color-btn-border-bottom-right: #D77206;
+  --color-btn-text: #FFFFFF;
+  
+  --color-gradient-on: #4CAF50;
+  
+  --color-orange: #FFB347;
+  --color-warning-bg: #2A1A00;
+  --color-print-ownership: #888888;
+}
+
+/* Base global styles using variables */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mainDIVcss {
+  background-color: var(--color-bg-card);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mainDIVcss h1 {
+  color: var(--color-text-heading);
+}
+
+.mainDIVcss textarea,
+.mainDIVcss input,
+.mainDIVcss .textfield,
+.mainDIVcss .textbox {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.TextDescr {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.TextWarn {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-warning);
+  border-color: var(--color-border-warning);
+}
+
+.VisWarn {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-warning);
+}
+
+.ExportDIVField {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border-warning);
+}
+
+/* Button styles using CSS variables */
+a.btn {
+  color: var(--color-btn-text);
+  text-decoration: none;
+  user-select: none;
+  background: var(--color-btn-bg);
+  padding: .33em 1.0em;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-btn-border-top-left) var(--color-border) var(--color-border) var(--color-btn-border-bottom-right);
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+a.btn:hover {
+  background: var(--color-btn-bg-hover);
+}
+
+a.btn:active {
+  background: var(--color-btn-bg-active);
+}
+
+/* Checkbox toggle styles */
+.mrt {
+  border-color: var(--color-border-accent);
+}
+
+.rtg:checked ~ .mrt {
+  border-color: var(--color-gradient-on);
+}
+
+.rtg:checked ~ .lst {
+  color: var(--color-text-success);
+}
+
+.lst {
+  color: var(--color-text-accent);
+}
+
+/* Res lbl */
+.Reslbl {
+  color: var(--color-text-info);
+}
+
+/* Address links */
+a.AddrLink {
+  color: var(--color-text-info);
+}
+
+a.AddrLink:active {
+  color: var(--color-orange);
+}
+
+a.AddrLink:hover {
+  color: var(--color-orange);
+}
+
+/* Popup images */
+.imgPopUp span {
+  background: var(--color-bg-card);
+  box-shadow: -3px 4px 12px -2px #333;
+  border: 5px solid orange;
+}
+
+.imgPopUp:hover {
+  color: var(--color-orange);
+}
+
+/* YouTube links */
+.youtubeLink:hover {
+  color: #E88303;
+}
+
+/* Checkbox styling */
+.cbx span:first-child {
+  border: 1px solid var(--color-text-info);
+  stroke: var(--color-btn-text);
+}
+
+.cbx:hover span:first-child {
+  border-color: orange;
+}
+
+.inp-cbx:checked + .cbx span:first-child {
+  background: orange;
+  border-color: orange;
+}
+
+.inp-cbx:checked + .cbx span:first-child svg {
+  stroke-dashoffset: 0;
+}
+
+/* Print ownership text */
+p.printOwnership {
+  color: var(--color-print-ownership);
+}
+
+/* Cautionary message */
+#Caution {
+  color: var(--color-text-warning);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .mainDIVcss {
+    width: 95%;
+    margin-left: 0;
+  }
+  
+  .textbox, .textfield, .textfieldPK, .VisWarn, .TextDescr {
+    width: 95%;
+  }
+  
+  .Reslbl {
+    margin-left: 5px;
+    padding-left: 5px;
+  }
+}
